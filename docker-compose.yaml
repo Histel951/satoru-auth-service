@@ -1,0 +1,22 @@
+services:
+  auth-service:
+    image: node:20-alpine
+    working_dir: ${DOCKER_PROJECT_DIR:-/usr/app}
+    restart: unless-stopped
+    environment:
+      ENV: ${NODE_ENV:-dev}
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      GUILD_ID: ${GUILD_ID:-}
+      DOCKER_PROJECT_DIR: ${DOCKER_PROJECT_DIR:-/usr/app}
+    volumes:
+      - ./:${DOCKER_PROJECT_DIR:-/usr/app}
+      - ./node_modules:${DOCKER_PROJECT_DIR:-/usr/app}/node_modules
+    command: npm run ${NODE_ENV:-dev}
+    networks:
+      - satoru-app
+
+networks:
+  satoru-app:
+    external: true
+    driver: bridge
