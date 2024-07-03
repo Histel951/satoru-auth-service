@@ -1,5 +1,5 @@
 import { Schema, Types, Document } from "mongoose";
-import { ITeam } from "../../interfaces/schemas/ITeam";
+import { ITeam } from "@/interfaces/schemas/ITeam";
 
 export default new Schema<ITeam & Document>({
     name: String,

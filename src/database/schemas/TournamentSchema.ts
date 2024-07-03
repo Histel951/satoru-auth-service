@@ -1,5 +1,5 @@
 import { Document, Schema } from "mongoose";
-import { ITournament } from "../../interfaces/schemas/ITournament";
+import { ITournament } from "@/interfaces/schemas/ITournament";
 
 export default new Schema<ITournament & Document>({
     name: { type: String, required: true },

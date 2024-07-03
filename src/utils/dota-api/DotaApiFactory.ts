@@ -1,7 +1,7 @@
 import DotaApiPort from "./DotaApiPort";
 import OpenDotaClient from "./open-dota/OpenDotaClient";
 import OpenDotaAdapter from "./open-dota/OpenDotaAdapter";
-import { DotaApiPortI } from "../../interfaces/dota-api/DotaApiPortI";
+import { DotaApiPortI } from "@/interfaces/dota-api/DotaApiPortI";
 import StratzDotaAdapter from "./stratz/StratzDotaAdapter";
 import StratzDotaClient from "./stratz/StratzDotaClient";
 

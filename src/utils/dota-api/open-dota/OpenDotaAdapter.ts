@@ -1,6 +1,6 @@
-import { DotaPlayerApiAdapter } from "../../../interfaces/dota-api/DotaPlayerApiAdapter";
-import { PlayerInfoT } from "../../../types/dota-api/adapter/PlayerInfoT";
-import { PlayerInfoOpenDotaResponseT } from "../../../types/dota-api/open-dota/responses/PlayerInfoOpenDotaResponseT";
+import { DotaPlayerApiAdapter } from "@/interfaces/dota-api/DotaPlayerApiAdapter";
+import { PlayerInfoT } from "@/types/dota-api/adapter/PlayerInfoT";
+import { PlayerInfoOpenDotaResponseT } from "@/types/dota-api/open-dota/responses/PlayerInfoOpenDotaResponseT";
 
 export default class implements DotaPlayerApiAdapter<PlayerInfoOpenDotaResponseT> {
     playerInfo(response: PlayerInfoOpenDotaResponseT): PlayerInfoT {

@@ -1,7 +1,7 @@
-import { DotaApiClient } from "../../../interfaces/dota-api/DotaApiClient";
-import { PlayerInfoStratzResponseT } from "../../../types/dota-api/open-dota/responses/PlayerInfoStratzResponseT";
+import { DotaApiClient } from "@/interfaces/dota-api/DotaApiClient";
+import { PlayerInfoStratzResponseT } from "@/types/dota-api/open-dota/responses/PlayerInfoStratzResponseT";
 import { createClient, Client, cacheExchange, fetchExchange } from "urql";
-import playerInfoQuery from "../../../graphql/stratz/playerInfoQuery";
+import playerInfoQuery from "@/graphql/stratz/playerInfoQuery";
 
 export default class implements DotaApiClient<PlayerInfoStratzResponseT> {
 
@@ -9,10 +9,10 @@ export default class implements DotaApiClient<PlayerInfoStratzResponseT> {
 
     constructor() {
         this.client = createClient({
-            url: process.env.STRATZ_API_URL as string,
+            url: process.env['STRATZ_API_URL'] as string,
             exchanges: [cacheExchange, fetchExchange],
             fetchOptions: () => {
-                const token = process.env.STRATZ_DOTA_API_TOKEN;
+                const token = process.env['STRATZ_DOTA_API_TOKEN'];
 
                 return {
                     headers: {

@@ -12,15 +12,19 @@ query ($playerId: Long!) {
                 roleWinCount
                 roleType
             }
-            rank
         }
-        leaderboardRanks(take: 1) {
+        leaderboardRanks {
             rank
+            seasonRankId
         }
         lastMatchDate
         steamAccount {
             profileUri
             id
+        }
+        ranks {
+            rank
+            seasonRankId
         }
     }
 }

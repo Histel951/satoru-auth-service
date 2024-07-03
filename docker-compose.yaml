@@ -3,16 +3,35 @@ services:
     image: node:20-alpine
     working_dir: ${DOCKER_PROJECT_DIR:-/usr/app}
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       ENV: ${NODE_ENV:-dev}
       DISCORD_TOKEN: ${DISCORD_TOKEN}
       DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
       GUILD_ID: ${GUILD_ID:-}
       DOCKER_PROJECT_DIR: ${DOCKER_PROJECT_DIR:-/usr/app}
+      MONGO_USERNAME: ${MONGO_USERNAME:-admin}
+      MONGO_PASSWORD: ${MONGO_PASSWORD:-password}
+      MONGO_HOSTNAME: mongodb
+      MONGO_PORT: ${MONGO_PORT:-27017}
+      MONGO_DB: ${MONGO_DB:-satoro_bot}
+      DOTA_API_PORT: ${DOTA_API_PORT:-stratz}
+      STRATZ_DOTA_API_TOKEN: ${STRATZ_DOTA_API_TOKEN}
+      STRATZ_API_URL: ${STRATZ_API_URL:-https://api.stratz.com/graphql}
+      STRATZ_API_TYPE: ${STRATZ_API_TYPE:-graphiql}
     volumes:
       - ./:${DOCKER_PROJECT_DIR:-/usr/app}
       - ./node_modules:${DOCKER_PROJECT_DIR:-/usr/app}/node_modules
     command: npm run ${NODE_ENV:-dev}
+    networks:
+      - satoru-app
+
+  rabbit-mq:
+    image: rabbitmq:3
+    ports:
+      - "15672:15672" # RabbitMQ Management UI
+      - "5672:5672"   # RabbitMQ Port
     networks:
       - satoru-app
 

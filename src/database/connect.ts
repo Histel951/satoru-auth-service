@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const connectToDatabase = async () => {
     try {
         await mongoose.connect(
-            `mongodb://mongodb:${process.env.MONGO_PORT}`,
+            `mongodb://mongodb:${process.env['MONGO_PORT']}`,
             {
-                user: process.env.MONGO_USERNAME,
-                pass: process.env.MONGO_PASSWORD,
-                dbName: process.env.MONGO_DB,
+                user: process.env['MONGO_USERNAME'],
+                pass: process.env['MONGO_PASSWORD'],
+                dbName: process.env['MONGO_DB'],
                 family: 4,
                 maxPoolSize: 10,
                 autoIndex: false,

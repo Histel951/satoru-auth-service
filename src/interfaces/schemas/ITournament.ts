@@ -1,4 +1,6 @@
-export interface ITournament {
+import { Document } from "mongoose";
+
+export interface ITournament extends Document {
     name: string
     description: string
     imageUrl: string

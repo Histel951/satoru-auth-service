@@ -1,13 +1,12 @@
-import mongoose from "mongoose";
-import { ColorResolvable } from "discord.js";
+import { Document, Types } from "mongoose";
 
-export interface ITeam {
-    _id: mongoose.Types.ObjectId
-    name: string
-    image_url: string
+export interface ITeam extends Document {
+    _id: Types.ObjectId;
+    name: string;
+    image_url: string;
     owner: {
-        type: mongoose.Types.ObjectId
-        ref: string
-    },
-    ratingPoints: number,
+        type: Types.ObjectId;
+        ref: string;
+    };
+    ratingPoints: number;
 }

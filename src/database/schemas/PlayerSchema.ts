@@ -1,7 +1,7 @@
-import { Schema, Document, Types } from "mongoose";
-import { IPlayer } from "../../interfaces/schemas/IPlayer";
+import { Schema } from "mongoose";
+import { IPlayer } from "@/interfaces/schemas/IPlayer";
 
-export default new Schema<IPlayer & Document>({
+export default new Schema<IPlayer>({
     discordId: String,
     team: {
         type: Schema.Types.ObjectId,
