@@ -1,7 +1,7 @@
 import mongoose, { Document } from "mongoose";
 import { ITeam } from "./ITeam";
 
-export interface IPlayer extends Document {
+export interface IPlayerSchema {
     discordId: string;
     team: mongoose.Types.ObjectId | ITeam | null;
     steamAccountId: string;
@@ -11,3 +11,5 @@ export interface IPlayer extends Document {
     leaderboardRank: number | null;
     position: number | null;
 }
+
+export interface IPlayer extends Document, IPlayerSchema {}

@@ -1,7 +1,7 @@
-import { DotaApiPortI } from "../../interfaces/dota-api/DotaApiPortI";
-import { DotaPlayerApiAdapter } from "../../interfaces/dota-api/DotaPlayerApiAdapter";
-import { DotaApiClient } from "../../interfaces/dota-api/DotaApiClient";
-import { PlayerInfoT } from "../../types/dota-api/adapter/PlayerInfoT";
+import { DotaApiPortI } from "@/interfaces/dota-api/DotaApiPortI";
+import { DotaPlayerApiAdapter } from "@/interfaces/dota-api/DotaPlayerApiAdapter";
+import { DotaApiClient } from "@/interfaces/dota-api/DotaApiClient";
+import { PlayerInfoT } from "@/types/dota-api/adapter/PlayerInfoT";
 
 export default class DotaApiPort<PlayerInfoResponseT> implements DotaApiPortI {
 

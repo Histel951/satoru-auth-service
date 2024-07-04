@@ -18,7 +18,6 @@ export default async (queueName: string, callback: ConsumeCallback) => {
             return;
         }
 
-        console.log(response);
         channel.sendToQueue(msg.properties.replyTo, Buffer.from(JSON.stringify(response)), {
             correlationId: 'registerMember'
         });
