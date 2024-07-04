@@ -11,18 +11,22 @@ export default async (queueName: string, callback: ConsumeCallback) => {
             return;
         }
 
-        const response = await callback(msg);
+        try {
+            const response = await callback(msg);
 
-        if (!response) {
+            if (!response) {
+                channel.ack(msg);
+                return;
+            }
+
+            channel.sendToQueue(msg.properties.replyTo, Buffer.from(JSON.stringify(response)), {
+                correlationId: 'registerMember'
+            });
+
             channel.ack(msg);
-            return;
+        } catch (error) {
+            console.error(error);
         }
-
-        channel.sendToQueue(msg.properties.replyTo, Buffer.from(JSON.stringify(response)), {
-            correlationId: 'registerMember'
-        });
-
-        channel.ack(msg);
     });
 
     channel.on('error', (error) => {

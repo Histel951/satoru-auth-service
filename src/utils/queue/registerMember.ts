@@ -10,18 +10,23 @@ export default async (msg: ConsumeMessage | null): Promise<IPlayerSchema | null>
         return null;
     }
 
-    const { dotaId, discordId }: RegisterMemberContentI = JSON.parse(content);
+    try {
+        const { dotaId, discordId }: RegisterMemberContentI = JSON.parse(content);
 
-    const player = await register(discordId, dotaId);
+        const player = await register(discordId, dotaId);
 
-    return player ? {
-        name: player.name,
-        team: player.team,
-        steamAccountId: player.steamAccountId,
-        lastMatchDate: player.lastMatchDate,
-        leaderboardRank: player.leaderboardRank,
-        position: player.position,
-        discordId: player.discordId,
-        rank: player.rank,
-    } : null;
+        return player ? {
+            name: player.name,
+            team: player.team,
+            steamAccountId: player.steamAccountId,
+            lastMatchDate: player.lastMatchDate,
+            leaderboardRank: player.leaderboardRank,
+            position: player.position,
+            discordId: player.discordId,
+            rank: player.rank,
+        } : null;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }
