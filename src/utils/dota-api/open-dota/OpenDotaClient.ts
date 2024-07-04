@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 import { PlayerInfoOpenDotaResponseT } from "@/types/dota-api/open-dota/responses/PlayerInfoOpenDotaResponseT";
 import * as process from "process";
 
-export default class implements DotaApiClient<PlayerInfoOpenDotaResponseT> {
+export default class OpenDotaClient implements DotaApiClient<PlayerInfoOpenDotaResponseT> {
 
     private readonly axios: AxiosInstance;
 

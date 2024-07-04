@@ -5,7 +5,7 @@ import { DotaApiPortI } from "@/interfaces/dota-api/DotaApiPortI";
 import StratzDotaAdapter from "./stratz/StratzDotaAdapter";
 import StratzDotaClient from "./stratz/StratzDotaClient";
 
-export default class {
+export default class DotaApiFactory {
 
     static createOpenDotaPort(): DotaApiPortI {
         return new DotaApiPort(
