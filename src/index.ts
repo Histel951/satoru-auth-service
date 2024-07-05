@@ -3,7 +3,7 @@ import connectToDatabase from "@/database/connect";
 import registerMember from "@/utils/queue/registerMember";
 import mongoose from "mongoose";
 
-connectToDatabase();
+void connectToDatabase();
 
 mongoose.connection.once('open', async () => {
     console.log('Connected to the database');
